@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOKEPON!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="seleccionar-mascota">
+        <div class="titulo">
+            <div class="logo-juego"></div>
+            <h2 class="subtitulo">Elige tu Mokepón:</h2>
+        </div>
+            <div id="contenedor-tarjetas" class="tarjetas"><div>
+        </section>
+
+
+    <section id="seleccionar-ataque">
+        <div class="display-combate">
+            <div class="mitad-jugador">
+                <div id="personaje-jugador">
+                    <div class="nivel-nombre-jugador">
+                        <p id="mascota-jugador__nivel"></p>
+                        <p id="mascota-jugador__nombre">Jugador 🧑🏻</p>
+                    </div>
+                    <div class="nombre-tipo-jugador">
+                        <p id="mascota-jugador"></p>
+                        <p id="mascota-jugador__tipo"></p>
+                    </div>
+                </div>
+                    <div id='contenedor-ataques' class="area-de-botones"></div>
+                    <div id="foto-jugador"></div>
+                    <div id="ataques-del-jugador"></div>
+                </div>
+
+            <div class="zona-central-combate">
+                <div class="logo-fijo"><img src="./Assets/logo-fijo.png" alt=""></div>
+                <div id="conteo">
+                    <span id="victorias-jugador">0</span>
+                    <span id="versus">Vs</span>
+                    <span id="victorias-enemigo">0</span>
+                </div>
+                <div id="mensajes">
+                    <p id="resultado">Mucha Suerte!!</p>
+                </div>
+                <div id="zona-interactiva">
+                    <section id="inicio-de-lucha">
+                        <button id="boton-lucha" class="botones-interactivos">Iniciar Duelo<br>⚔</button>
+                    </section>
+                    <section id="animacion-lucha"></section>
+                    <section id="reiniciar">
+                        <!--<button id="boton-jugar-nuevamente" class="botones-interactivos">Volver a Jugar</button>-->
+                        <button id="boton-reiniciar" class="botones-interactivos">Volver a Jugar<br>🎮</button>
+                    </section>
+                </div>
+            </div>
+            
+            <div class="mitad-enemigo">
+                <div id="personaje-enemigo">
+                    <div class="nombre-tipo-enemigo">
+                        <p id="mascota-enemigo__tipo"></p>
+                        <p id="mascota-enemigo"></p>
+                    </div>
+                    <div class="nivel-nombre-jugador">
+                        <p id="mascota-enemigo__nivel"></p>
+                        <p id="mascota-enemigo__nombre">Pc 💻</p>
+                    </div>
+                    
+                    
+                </div>
+                    <div id="foto-enemigo"></div>
+                    <div id='botones-ataques-enemigo' class="area-de-botones-enemiga"></div>
+                    <div id="ataques-del-enemigo"></div>
+                </div>
+        </div>
+    </section>   
+    <script src="./JS/mokepon.js"></script>    
+</body>
+</html>
