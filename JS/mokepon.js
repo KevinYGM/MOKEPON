@@ -654,8 +654,8 @@ function iniciarDuelo(){
 function secuenciaAtaque() {
         sonidoSeccionInicial.pause();
        processAttackStart();
-        sonidoBatalla.loop = true;
-        sonidoBatalla.play();
+        //sonidoBatalla.loop = true;
+        //sonidoBatalla.play();
     
         botones.forEach((boton) => {
             boton.addEventListener('click', (e) => {

@@ -533,12 +533,13 @@ label:hover{
 .botones-interactivos{
     background-color: rgba(228, 160, 14, 0.74);
     font-family: 'Fredoka', sans-serif;
-    width: 25vw;
-    height: 20vh;
-    border-radius: 20px;
+    width: 18vw;
+    height: 15vw;
+    border-radius: 50%;
     color: white;
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2.8vw;
+    overflow: hidden;
 }
 
 .ataques{
@@ -589,6 +590,9 @@ label:hover{
     background-color: yellow;
 }
 
+
+
+
 @media screen and (max-width: 500px) {
     #seleccionar-ataque{
       transform: rotate(90deg);
@@ -597,8 +601,8 @@ label:hover{
     }
 
     #boton-estrella{
-        width: 12vw;
-        height: 12vw;
+        width: 13vw;
+        height: 13vw;
         font-size: 6vw;
     }
 
@@ -643,6 +647,7 @@ label:hover{
 
     #mensajes{
         font-size: 6.5vw;
+        width: 90vw;
     }
 
     #personaje-jugador, #personaje-enemigo{
@@ -652,4 +657,22 @@ label:hover{
     #ataques-del-jugador p, #ataques-del-enemigo p{
         font-size: 2vw;
     }
+
+    .botones-interactivos{
+        width: 25vw;
+        height: 20vw;
+        border-radius: 50%;
+        color: white;
+        font-size: 3vw;
+    }
+
+    #animacion-lucha{
+        justify-content: center;
+        background-image: url('./Assets/Luchando-28-5-2023.gif');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 45vw;
+        height: 20vw;
+     }
+    
 }
