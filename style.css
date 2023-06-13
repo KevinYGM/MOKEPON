@@ -683,7 +683,7 @@ label:hover{
 
     #personaje-jugador, #personaje-enemigo{
         font-size: 4vw;
-        grid-template-rows: 80% 20%;
+        grid-template-rows: 90% 10%;
     }
 
     #ataques-del-jugador p, #ataques-del-enemigo p{
