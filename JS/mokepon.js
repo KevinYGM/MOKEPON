@@ -61,6 +61,8 @@ let ataques;
 let nuevoAtaqueDelJugador;
 let tipoEnemigo;
 let tipoJugador;
+let nivelJugador;
+let nivelEnemigo;
 
 let inputHipodoge;
 let inputCapipepo; 
@@ -511,8 +513,11 @@ function seleccionarMascotaJugador(){
             spanMascotaJugador.innerHTML = mascotaJugador;
             tipoMascotaJugador.innerHTML = mascotas[mascota].tipo;
             nivelMascotaJugador.innerHTML = mascotas[mascota].nivel;
+            
             tipoJugador = mascotas[mascota].tipo;
-            asignarColorXTipo(tipoJugador);
+            nivelJugador = mascotas[mascota].nivel;
+            asignarColorJugador(tipoJugador);
+            asignarColorJugador(nivelJugador);
             sonidopostSeleccionPersonaje.play();
             ningunaSeleccionada = false;
             mokepones.forEach(() => {
@@ -535,7 +540,9 @@ function seleccionarMascotaEnemigo() {
     nivelMascotaEnemigo.innerHTML =  mokepones[mascotaAleatoria].nivel; 
     mascotaEnemigo = mokepones[mascotaAleatoria].nombre;
     tipoEnemigo = mokepones[mascotaAleatoria].tipo;
-    asignarColorXTipoEnemigo(tipoEnemigo);
+    nivelEnemigo = mokepones[mascotaAleatoria].nivel;
+    asignarColorEnemigo(tipoEnemigo);
+    asignarColorEnemigo(nivelEnemigo);
          
     mokepones.forEach(() => {
         fotoMokeponEnemigo = `<img src=${mokepones[mascotaAleatoria].foto} alt=${mokepones[mascotaAleatoria].nombre}>
@@ -584,24 +591,34 @@ function mostrarAtaquesEnemigo(){
     })
 }
 
-function asignarColorXTipo(tipoPersonaje){
-   if(tipoPersonaje == '🔥'){
-        cajonPersonajeJugador.style.backgroundImage = coloresFuego.fondoBackground;
-    }else if(tipoPersonaje == '💧'){
-        cajonPersonajeJugador.style.backgroundImage = coloresAgua.fondoBackground;
-    }else if(tipoPersonaje == '🌱'){
-        cajonPersonajeJugador.style.backgroundImage = coloresPlanta.fondoBackground;
-    }
+function asignarColorJugador(tipoNivelPersonaje){
+   if(tipoNivelPersonaje == '🔥'){
+        cajonPersonajeJugador.style.backgroundImage = coloresFuego.fondoBackground;}
+    if(tipoNivelPersonaje == '💧'){
+        cajonPersonajeJugador.style.backgroundImage = coloresAgua.fondoBackground;}
+    if(tipoNivelPersonaje == '🌱'){
+        cajonPersonajeJugador.style.backgroundImage = coloresPlanta.fondoBackground;}
+    if(tipoNivelPersonaje == 'Novato 💫'){
+        nivelMascotaJugador.style.backgroundImage = colorNivelNovato;}
+    if(tipoNivelPersonaje == 'Intermedio ✨'){
+        nivelMascotaJugador.style.backgroundImage = colorNivelIntermedio;}
+    if(tipoNivelPersonaje == 'Superior 🔯'){
+        nivelMascotaJugador.style.backgroundImage = colorNivelSuperior;}
 }
 
-function asignarColorXTipoEnemigo(tipoPersonaje){
-    if(tipoPersonaje == '🔥'){
-        cajonPersonajeEnemigo.style.backgroundImage = coloresFuego.fondoBackground;
-    }else if(tipoPersonaje == '💧'){
-        cajonPersonajeEnemigo.style.backgroundImage = coloresAgua.fondoBackground;
-    }else if(tipoPersonaje == '🌱'){
-        cajonPersonajeEnemigo.style.backgroundImage = coloresPlanta.fondoBackground;
-    }
+function asignarColorEnemigo(tipoNivelPersonaje){
+    if(tipoNivelPersonaje == '🔥'){
+        cajonPersonajeEnemigo.style.backgroundImage = coloresFuego.fondoBackground;}
+    if(tipoNivelPersonaje == '💧'){
+        cajonPersonajeEnemigo.style.backgroundImage = coloresAgua.fondoBackground;}
+    if(tipoNivelPersonaje == '🌱'){
+        cajonPersonajeEnemigo.style.backgroundImage = coloresPlanta.fondoBackground;}
+    if(tipoNivelPersonaje == 'Novato 💫'){
+        nivelMascotaEnemigo.style.backgroundImage = colorNivelNovato;}
+    if(tipoNivelPersonaje == 'Intermedio ✨'){
+        nivelMascotaEnemigo.style.backgroundImage = colorNivelIntermedio;}
+    if(tipoNivelPersonaje == 'Superior 🔯'){
+        nivelMascotaEnemigo.style.backgroundImage = colorNivelSuperior;}
 }
 
 
