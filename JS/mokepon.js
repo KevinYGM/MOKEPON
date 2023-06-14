@@ -670,8 +670,8 @@ function iniciarDuelo(){
 function secuenciaAtaque() {
         sonidoSeccionInicial.pause();
        processAttackStart();
-        //sonidoBatalla.loop = true;
-        //sonidoBatalla.play();
+        sonidoBatalla.loop = true;
+        sonidoBatalla.play();
     
         botones.forEach((boton) => {
             boton.addEventListener('click', (e) => {
@@ -774,7 +774,7 @@ function revisarVictorias(){
             crearMensajeFinal('FELICITACIONES!! HAS GANADO 🎉');
             sonidoMensajeFinalGanador.play();
         }else {
-            crearMensajeFinal('LO SENTIMOS, HAS PERDIDO 🎃');
+            crearMensajeFinal('HAS PERDIDO 😵');
             sonidoMensajeFinalDerrota.play();
         }
     }

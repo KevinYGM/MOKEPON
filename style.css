@@ -40,6 +40,7 @@ html{
 
 
 body{
+    background-image: var(--azulTurquesaGr);
     font-family: 'Fredoka', sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
@@ -637,8 +638,8 @@ label:hover{
     }
 
     #boton-estrella{
-        width: 13vw;
-        height: 13vw;
+        width: 12vw;
+        height: 12vw;
         font-size: 6vw;
     }
 
@@ -657,6 +658,7 @@ label:hover{
         align-items: center;
         height: 90%;
         width: 100%;
+        padding-top: 10%;
     }
 
     #mascota-jugador__nombre, #mascota-enemigo__nombre{
@@ -686,8 +688,9 @@ label:hover{
     }
 
     #mensajes{
-        font-size: 6.5vw;
+        font-size: 5.5vw;
         width: 90vw;
+        text-align: center;
     }
 
     #personaje-jugador, #personaje-enemigo{
