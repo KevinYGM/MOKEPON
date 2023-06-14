@@ -340,11 +340,11 @@ function iniciarJuego(){
             </div>
             <div class="resena-mokepon"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis enim praesentium aperiam, rem alias totam amet dolor ducimus, debitis dicta et doloribus animi tenetur quisquam? Nesciunt assumenda maxime blanditiis laborum.</p><span>${mokepon.tipo}</span></div>
             <div class="boton-seleccionar">
-                <button class="btn-seleccionar">Seleccionar<span>${mokepon.tipo}</span></button>
+             <button class="btn-seleccionar" id="boton-seleccionar">Seleccionar<span>${mokepon.tipo}</span></button>
             </div>
         </label>
          `
-         
+
     contenedorTarjetas.innerHTML += opcionDeMokepones;
     
     inputPydos = document.getElementById('Pydos');
@@ -403,7 +403,6 @@ elementosTarjetas.forEach((tarjeta) => {
         tarjeta.style.backgroundImage = colorNivelIntermedio;}
     if(tarjeta.className == "nivel-mokepon" && tarjeta.innerHTML.includes('🔯')){
         tarjeta.style.backgroundImage = colorNivelSuperior;}  
-    //if(tarjeta.className === "btn-seleccionar" && tarjeta.innerHTML.includes('💧')){
     }); 
    
    
