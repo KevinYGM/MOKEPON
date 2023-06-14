@@ -768,13 +768,13 @@ function revisarVictorias(){
    
     if(contadorAtaques == 5 || victoriasJugador == 3 || victoriasEnemigo == 3 ){
         if(victoriasJugador === victoriasEnemigo){
-            crearMensajeFinal('ESTO FUE UN EMPATE!!');
+            crearMensajeFinal('ESTO FUE UN EMPATE!! ⚖');
             sonidoMensajeFinalEmpate.play();
         } else if (victoriasJugador > victoriasEnemigo){
-            crearMensajeFinal('FELICITACIONES!! HAS GANADO 🎉');
+            crearMensajeFinal('FELICITACIONES!! HAS GANADO!! 🎉');
             sonidoMensajeFinalGanador.play();
         }else {
-            crearMensajeFinal('HAS PERDIDO 😵');
+            crearMensajeFinal('HAS PERDIDO!! 😵');
             sonidoMensajeFinalDerrota.play();
         }
     }

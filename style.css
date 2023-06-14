@@ -96,7 +96,7 @@ body{
 
 #seleccionar-mascota{
     background-image: var(--azulTurquesaGr);
-    width: 226vw;
+    /*width: 226vw;*/
     min-width: 310rem;
     height: 100vh;
     display: flex;
@@ -393,6 +393,7 @@ label:hover{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding-top: 10%;
     gap: 1%;
     justify-content: space-around;
     align-items: center;
@@ -460,7 +461,7 @@ label:hover{
     border-radius: 50%;
     color: white;
     font-weight: bold;
-    border: 3px groove rgb(228, 160, 14);
+    border: 0.33vw solid rgb(15, 14, 12);
     font-size: 2vw;
     overflow: hidden;
     
@@ -629,6 +630,7 @@ label:hover{
 
     .subtitulo{
         font-size: 6vw;
+        position:static;
     }
 
     #seleccionar-ataque{
@@ -663,6 +665,10 @@ label:hover{
 
     #mascota-jugador__nombre, #mascota-enemigo__nombre{
         font-size: 2vw;
+    }
+
+    #mascota-jugador__tipo, #mascota-enemigo__tipo{
+        font-size: 3vw;
     }
 
      .display-combate{
