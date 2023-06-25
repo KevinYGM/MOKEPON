@@ -323,6 +323,7 @@ function iniciarJuego(){
 
     //codigo para crear desde 0 cada tarjeta mokepon, usando los datos de la clase Mokepon.
     mokepones.forEach((mokepon) => {
+        if(mokepon.tipo === '🌱'){
        opcionDeMokepones = `<input type="radio" name="mascota" id=${mokepon.nombre}>
         <label id="tarjeta-de-mokepon" class="tarjetas-varias" for=${mokepon.nombre}>
             <div id="area-titulo-mokepon">
@@ -344,15 +345,16 @@ function iniciarJuego(){
             </div>
         </label>
          `
+    }else {return};
 
     contenedorTarjetas.innerHTML += opcionDeMokepones;
     
-    inputPydos = document.getElementById('Pydos');
+    /*inputPydos = document.getElementById('Pydos');
     inputHipodoge = document.getElementById('Hipodoge');
     inputKingpingcold = document.getElementById('Kingpingcold');
     inputCapipepo = document.getElementById('Capipepo');
     inputLeaflion = document.getElementById('Leaflion');
-    inputSerpentherb = document.getElementById('Serpentherb');
+    inputSerpentherb = document.getElementById('Serpentherb');*/
     inputRatigueya = document.getElementById('Ratigueya');
     inputLangostelvis = document.getElementById('Langostelvis');
     inputTucapalma = document.getElementById('Tucapalma');
@@ -496,9 +498,7 @@ function seleccionarMascotaJugador(){
             nivel: tucapalma.nivel
         }
     };
-
     
-
     for (let mascota in mascotas) {
         if (mascotas[mascota].id.checked) {
             extraccionMascotaJugador = mascotas[mascota].id;
