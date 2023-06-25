@@ -6,6 +6,7 @@ const sectionReiniciar = document.getElementById('reiniciar');
 const botonReiniciar = document.getElementById('boton-reiniciar');
 /*const botonJugarDeNuevo = document.getElementById('boton-jugar-nuevamente');*/
 const botonIniciarDuelo = document.getElementById("boton-lucha");
+const seleccionarTipoInicio = document.getElementById("seleccionar-tipo");
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
 const spanMascotaJugador = document.getElementById('mascota-jugador');
@@ -310,8 +311,10 @@ function ganaste(){
 
 
 function iniciarJuego(){
-    sonidoSeccionInicial.loop = true;
-    sonidoSeccionInicial.play();
+    //sonidoSeccionInicial.loop = true;
+   // sonidoSeccionInicial.play();
+    seleccionarTipoInicio.style.display = 'flex';
+    sectionSeleccionarMascota.style.display = 'none';
     sectionSeleccionarAtaque.style.display = 'none';
     sectionAnimacion.style.display = "none";
     sectionReiniciar.style.display ='none';
