@@ -312,16 +312,15 @@ function ganaste(){
     sonidoGanadaSimple.play();
 }
 
-function seleccionarTipo(tipo){
-   sectionSeleccionarTipoInicio.style.display ='none';
-    sectionSeleccionarMascota.style.display = 'flex';
+/*function seleccionarTipo(tipo){
+   
    if(tipo == 'agua'){
         tipoSeleccionado = '💧';}
     if(tipo == 'fuego'){
         tipoSeleccionado = '🔥';}
     if(tipo == 'planta'){
         tipoSeleccionado = '🌱';}
-}
+}*/
 
 
 
@@ -339,10 +338,19 @@ function iniciarJuego(){
     botonReiniciar.addEventListener('click', reiniciarJuego);
     /*botonJugarDeNuevo.addEventListener('click', volverAJugar);*/
     botonIniciarDuelo.addEventListener('click', iniciarDuelo);
-    btnSeleccionarAgua.addEventListener('click', seleccionarTipo('agua'));
-    btnSeleccionarPlanta.addEventListener('click', seleccionarTipo('planta'));
-    btnSeleccionarFuego.addEventListener('click', seleccionarTipo('fuego'));
+    btnSeleccionarAgua.addEventListener('click', function() {
+        tipoSeleccionado = '💧'
+        cargaDeTarjetas()});
+    btnSeleccionarPlanta.addEventListener('click', function() {
+        tipoSeleccionado = '🌱'
+        cargaDeTarjetas()});
+    btnSeleccionarFuego.addEventListener('click', function() {
+        tipoSeleccionado = '🔥'
+        cargaDeTarjetas()});
+}
 
+function cargaDeTarjetas(){
+    
     //codigo para crear desde 0 cada tarjeta mokepon, usando los datos de la clase Mokepon.
     mokepones.forEach((mokepon) => {
         if(mokepon.tipo === tipoSeleccionado){
@@ -368,6 +376,9 @@ function iniciarJuego(){
         </label>
          `
     }else {return};
+
+    sectionSeleccionarTipoInicio.style.display ='none';
+    sectionSeleccionarMascota.style.display = 'flex'
 
     contenedorTarjetas.innerHTML += opcionDeMokepones;
 
@@ -461,7 +472,7 @@ elementosTarjetas.forEach((tarjeta) => {
 
 
 function seleccionarMascotaJugador(){
-    if(tipoSeleccionado =='💧'){
+    if(tipoSeleccionado == '💧'){
         mascotas = {
                 inputPydos: {
                     name: pydos,
