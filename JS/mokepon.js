@@ -29,6 +29,7 @@ const cajonMensajes = document.getElementById("mensajes");
 const cajonPersonajeJugador = document.getElementById("personaje-jugador");
 const cajonPersonajeEnemigo = document.getElementById("personaje-enemigo");
 
+const flechaVolver = document.getElementById('flecha-volver');
 const btnSeleccionarAgua = document.getElementById('boton-seleccionar-agua');
 const btnSeleccionarPlanta = document.getElementById('boton-seleccionar-planta');
 const btnSeleccionarFuego = document.getElementById('boton-seleccionar-fuego');
@@ -313,6 +314,14 @@ function ganaste(){
     sonidoGanadaSimple.play();
 }
 
+function volverAtras(){
+    tipoSeleccionado;
+    opcionDeMokepones;
+    contenedorTarjetas.innerHTML = "";
+    sectionSeleccionarTipoInicio.style.display ='flex';
+    sectionSeleccionarMascota.style.display = 'none';
+}
+
 
 function iniciarJuego(){
     //sonidoSeccionInicial.loop = true;
@@ -323,6 +332,7 @@ function iniciarJuego(){
     sectionAnimacion.style.display = "none";
     sectionReiniciar.style.display ='none';
     sectionInicioLucha.style.display ='flex';
+    flechaVolver.addEventListener('click', volverAtras);
     /*botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);*/
     botonReiniciar.addEventListener('click', reiniciarJuego);
     /*botonJugarDeNuevo.addEventListener('click', volverAJugar);*/
@@ -368,7 +378,7 @@ function cargaDeTarjetas(){
     }else {return};
 
     sectionSeleccionarTipoInicio.style.display ='none';
-    sectionSeleccionarMascota.style.display = 'flex'
+    sectionSeleccionarMascota.style.display = 'flex';
 
     contenedorTarjetas.innerHTML += opcionDeMokepones;
 
