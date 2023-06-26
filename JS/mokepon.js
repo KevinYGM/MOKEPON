@@ -40,6 +40,7 @@ const btnSeleccionarFuego = document.getElementById('boton-seleccionar-fuego');
   }*/
 let tipoSeleccionado;
 let mokepones = [];
+let mokeponesMostrados = [];
 let colores = [];
 let elementosTarjetas = [];
 let seccionPoderes = [];
@@ -53,7 +54,7 @@ let opcionDeMokepones;
 let ataquesMokepon;
 let ataquesMokeponE;
 let ataquesMokeponEnemigo;
-let mascotas;
+let mascotas = 0;
 let mascotaJugador;
 let mascotaEnemigo = 0;
 let botones = [];
@@ -312,18 +313,6 @@ function ganaste(){
     sonidoGanadaSimple.play();
 }
 
-/*function seleccionarTipo(tipo){
-   
-   if(tipo == 'agua'){
-        tipoSeleccionado = '💧';}
-    if(tipo == 'fuego'){
-        tipoSeleccionado = '🔥';}
-    if(tipo == 'planta'){
-        tipoSeleccionado = '🌱';}
-}*/
-
-
-
 
 function iniciarJuego(){
     //sonidoSeccionInicial.loop = true;
@@ -375,6 +364,7 @@ function cargaDeTarjetas(){
             </div>
         </label>
          `
+         mokeponesMostrados.push(mokepon);
     }else {return};
 
     sectionSeleccionarTipoInicio.style.display ='none';
@@ -383,16 +373,19 @@ function cargaDeTarjetas(){
     contenedorTarjetas.innerHTML += opcionDeMokepones;
 
     if(tipoSeleccionado == '💧'){
+        sectionSeleccionarMascota.style.backgroundImage = coloresAgua.fondoBackground;
         inputPydos = document.getElementById('Pydos');
         inputHipodoge = document.getElementById('Hipodoge');
         inputKingpingcold = document.getElementById('Kingpingcold');
     }
     if(tipoSeleccionado == '🌱'){
+        sectionSeleccionarMascota.style.backgroundImage = coloresPlanta.fondoBackground;
         inputCapipepo = document.getElementById('Capipepo');
         inputLeaflion = document.getElementById('Leaflion');
         inputSerpentherb = document.getElementById('Serpentherb');
     }
     if(tipoSeleccionado == '🔥'){
+        sectionSeleccionarMascota.style.backgroundImage = coloresFuego.fondoBackground;
         inputRatigueya = document.getElementById('Ratigueya');
         inputLangostelvis = document.getElementById('Langostelvis');
         inputTucapalma = document.getElementById('Tucapalma');
@@ -446,32 +439,31 @@ elementosTarjetas.forEach((tarjeta) => {
         tarjeta.style.backgroundImage = colorNivelSuperior;}  
     }); 
    
-   
- //codigo para integrar los poderes de cada mokepon en las tarjetas
-  seccionPoderes = document.querySelectorAll('.poderes-mokepon');
-
-      if(seccionPoderes.length === mokepones.length){
-    seccionPoderes.forEach((poderes, index) => {
-        let ataquesTarj = mokepones[index].ataques;
-        let ataquesMokeponesTarjetas = '';
-
-        for (let i = 0; i < ataquesTarj.length; i++) {
-            ataquesMokeponesTarjetas += `<li class=${ataquesTarj[i].id}>${ataquesTarj[i].nombre}</li>`;
-         }
-        poderes.innerHTML = ataquesMokeponesTarjetas; 
-            
-        }); 
-    }; 
-    
     botonMascotaJugador= document.querySelectorAll('.btn-seleccionar');
 
     botonMascotaJugador.forEach(boton => {
         boton.addEventListener('click', seleccionarMascotaJugador);
     });
+
+
+    //codigo para integrar los poderes de cada mokepon en las tarjetas
+ seccionPoderes = document.querySelectorAll('.poderes-mokepon');
+ if(seccionPoderes.length === mokeponesMostrados.length){
+    seccionPoderes.forEach((poderes, index) => {
+        let ataquesTarj = mokeponesMostrados[index].ataques;
+        let ataquesMokeponesTarjetas = '';
+    
+        for (let i = 0; i < ataquesTarj.length; i++) {
+            ataquesMokeponesTarjetas += `<li class=${ataquesTarj[i].id}>${ataquesTarj[i].nombre}</li>`;
+        }
+        poderes.innerHTML = ataquesMokeponesTarjetas; 
+            
+        }); 
+    }; 
 }
+   
+ function seleccionarMascotaJugador(){
 
-
-function seleccionarMascotaJugador(){
     if(tipoSeleccionado == '💧'){
         mascotas = {
                 inputPydos: {
@@ -543,8 +535,8 @@ function seleccionarMascotaJugador(){
                     foto: tucapalma.foto,
                     nivel: tucapalma.nivel}
                 }};
-   
-            for (let mascota in mascotas) {
+    
+    for (let mascota in mascotas) {
         if (mascotas[mascota].id.checked) {
             extraccionMascotaJugador = mascotas[mascota].id;
             mascotaJugador = extraccionMascotaJugador.id;
