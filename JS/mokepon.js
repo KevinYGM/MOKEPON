@@ -317,6 +317,7 @@ function ganaste(){
 function volverAtras(){
     tipoSeleccionado;
     opcionDeMokepones;
+    mokeponesMostrados = [];
     contenedorTarjetas.innerHTML = "";
     sectionSeleccionarTipoInicio.style.display ='flex';
     sectionSeleccionarMascota.style.display = 'none';
