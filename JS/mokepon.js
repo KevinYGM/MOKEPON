@@ -6,7 +6,7 @@ const sectionReiniciar = document.getElementById('reiniciar');
 const botonReiniciar = document.getElementById('boton-reiniciar');
 /*const botonJugarDeNuevo = document.getElementById('boton-jugar-nuevamente');*/
 const botonIniciarDuelo = document.getElementById("boton-lucha");
-const seleccionarTipoInicio = document.getElementById("seleccionar-tipo");
+const sectionSeleccionarTipoInicio = document.getElementById("seleccionar-tipo");
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
 const spanMascotaJugador = document.getElementById('mascota-jugador');
@@ -29,12 +29,16 @@ const cajonMensajes = document.getElementById("mensajes");
 const cajonPersonajeJugador = document.getElementById("personaje-jugador");
 const cajonPersonajeEnemigo = document.getElementById("personaje-enemigo");
 
+const btnSeleccionarAgua = document.getElementById('boton-seleccionar-agua');
+const btnSeleccionarPlanta = document.getElementById('boton-seleccionar-planta');
+const btnSeleccionarFuego = document.getElementById('boton-seleccionar-fuego');
+
 /*if (localStorage.getItem('mascotaJugador') !== null) {
    mascotaJugador = JSON.parse(localStorage.getItem('mascotaJugador'));
   } else {
     mascotaJugador = 0;
   }*/
-
+let tipoSeleccionado;
 let mokepones = [];
 let colores = [];
 let elementosTarjetas = [];
@@ -49,6 +53,7 @@ let opcionDeMokepones;
 let ataquesMokepon;
 let ataquesMokeponE;
 let ataquesMokeponEnemigo;
+let mascotas;
 let mascotaJugador;
 let mascotaEnemigo = 0;
 let botones = [];
@@ -307,13 +312,24 @@ function ganaste(){
     sonidoGanadaSimple.play();
 }
 
+function seleccionarTipo(tipo){
+   sectionSeleccionarTipoInicio.style.display ='none';
+    sectionSeleccionarMascota.style.display = 'flex';
+   if(tipo == 'agua'){
+        tipoSeleccionado = '💧';}
+    if(tipo == 'fuego'){
+        tipoSeleccionado = '🔥';}
+    if(tipo == 'planta'){
+        tipoSeleccionado = '🌱';}
+}
+
 
 
 
 function iniciarJuego(){
     //sonidoSeccionInicial.loop = true;
-   // sonidoSeccionInicial.play();
-    seleccionarTipoInicio.style.display = 'flex';
+    //sonidoSeccionInicial.play();
+    sectionSeleccionarTipoInicio.style.display = 'flex';
     sectionSeleccionarMascota.style.display = 'none';
     sectionSeleccionarAtaque.style.display = 'none';
     sectionAnimacion.style.display = "none";
@@ -323,10 +339,13 @@ function iniciarJuego(){
     botonReiniciar.addEventListener('click', reiniciarJuego);
     /*botonJugarDeNuevo.addEventListener('click', volverAJugar);*/
     botonIniciarDuelo.addEventListener('click', iniciarDuelo);
+    btnSeleccionarAgua.addEventListener('click', seleccionarTipo('agua'));
+    btnSeleccionarPlanta.addEventListener('click', seleccionarTipo('planta'));
+    btnSeleccionarFuego.addEventListener('click', seleccionarTipo('fuego'));
 
     //codigo para crear desde 0 cada tarjeta mokepon, usando los datos de la clase Mokepon.
     mokepones.forEach((mokepon) => {
-        if(mokepon.tipo === '🌱'){
+        if(mokepon.tipo === tipoSeleccionado){
        opcionDeMokepones = `<input type="radio" name="mascota" id=${mokepon.nombre}>
         <label id="tarjeta-de-mokepon" class="tarjetas-varias" for=${mokepon.nombre}>
             <div id="area-titulo-mokepon">
@@ -351,16 +370,22 @@ function iniciarJuego(){
     }else {return};
 
     contenedorTarjetas.innerHTML += opcionDeMokepones;
-    
-    /*inputPydos = document.getElementById('Pydos');
-    inputHipodoge = document.getElementById('Hipodoge');
-    inputKingpingcold = document.getElementById('Kingpingcold');
-    inputCapipepo = document.getElementById('Capipepo');
-    inputLeaflion = document.getElementById('Leaflion');
-    inputSerpentherb = document.getElementById('Serpentherb');*/
-    inputRatigueya = document.getElementById('Ratigueya');
-    inputLangostelvis = document.getElementById('Langostelvis');
-    inputTucapalma = document.getElementById('Tucapalma');
+
+    if(tipoSeleccionado == '💧'){
+        inputPydos = document.getElementById('Pydos');
+        inputHipodoge = document.getElementById('Hipodoge');
+        inputKingpingcold = document.getElementById('Kingpingcold');
+    }
+    if(tipoSeleccionado == '🌱'){
+        inputCapipepo = document.getElementById('Capipepo');
+        inputLeaflion = document.getElementById('Leaflion');
+        inputSerpentherb = document.getElementById('Serpentherb');
+    }
+    if(tipoSeleccionado == '🔥'){
+        inputRatigueya = document.getElementById('Ratigueya');
+        inputLangostelvis = document.getElementById('Langostelvis');
+        inputTucapalma = document.getElementById('Tucapalma');
+        }
 });
 
 //codigo para integrar los estilos a las tarjetas de cada mokepon
@@ -436,73 +461,79 @@ elementosTarjetas.forEach((tarjeta) => {
 
 
 function seleccionarMascotaJugador(){
-    let mascotas = {
-        inputPydos: {
-            name: pydos,
-            id: Pydos,
-            tipo: pydos.tipo,
-            foto: pydos.foto,
-            nivel: pydos.nivel
-        },
-        inputHipodoge: {
-            name: hipodoge,
-            id: Hipodoge,
-            tipo: hipodoge.tipo,
-            foto: hipodoge.foto,
-            nivel: hipodoge.nivel
-        },
-        inputKingpingcold: {
-            name: kingpingcold,
-            id: Kingpingcold,
-            tipo: kingpingcold.tipo,
-            foto: kingpingcold.foto,
-            nivel: kingpingcold.nivel
-        },
-        inputCapipepo: {
-            name: capipepo,
-            id: Capipepo,
-            tipo: capipepo.tipo,
-            foto: capipepo.foto,
-            nivel: capipepo.nivel
-        },
-        inputLeaflion: {
-            name: leaflion,
-            id: Leaflion,
-            tipo: leaflion.tipo,
-            foto: leaflion.foto,
-            nivel: leaflion.nivel
-        },
-        inputSerpentherb: {
-            name: serpentherb,
-            id: Serpentherb,
-            tipo: serpentherb.tipo,
-            foto: serpentherb.foto,
-            nivel: serpentherb.nivel
-        },
-        inputRatigueya: {
-            name:ratigueya,
-            id: Ratigueya,
-            tipo: ratigueya.tipo,
-            foto: ratigueya.foto,
-            nivel: ratigueya.nivel
-        },
-        inputLangostelvis: {
-            name: langostelvis,
-            id: Langostelvis,
-            tipo: langostelvis.tipo,
-            foto: langostelvis.foto,
-            nivel: langostelvis.nivel
-        },
-        inputTucapalma:{
-            name: tucapalma,
-            id : Tucapalma,
-            tipo : tucapalma.tipo,
-            foto: tucapalma.foto,
-            nivel: tucapalma.nivel
-        }
-    };
-    
-    for (let mascota in mascotas) {
+    if(tipoSeleccionado =='💧'){
+        mascotas = {
+                inputPydos: {
+                    name: pydos,
+                    id: Pydos,
+                    tipo: pydos.tipo,
+                    foto: pydos.foto,
+                    nivel: pydos.nivel},
+
+                inputHipodoge: {
+                    name: hipodoge,
+                    id: Hipodoge,
+                    tipo: hipodoge.tipo,
+                    foto: hipodoge.foto,
+                    nivel: hipodoge.nivel},
+
+                inputKingpingcold: {
+                    name: kingpingcold,
+                    id: Kingpingcold,
+                    tipo: kingpingcold.tipo,
+                    foto: kingpingcold.foto,
+                    nivel: kingpingcold.nivel}
+            }};
+
+        if(tipoSeleccionado == '🌱'){
+            mascotas = {
+                inputCapipepo: {
+                    name: capipepo,
+                    id: Capipepo,
+                    tipo: capipepo.tipo,
+                    foto: capipepo.foto,
+                    nivel: capipepo.nivel},
+
+                inputLeaflion: {
+                    name: leaflion,
+                    id: Leaflion,
+                    tipo: leaflion.tipo,
+                    foto: leaflion.foto,
+                    nivel: leaflion.nivel },
+
+                inputSerpentherb: {
+                    name: serpentherb,
+                    id: Serpentherb,
+                    tipo: serpentherb.tipo,
+                    foto: serpentherb.foto,
+                    nivel: serpentherb.nivel}
+                }};
+
+        if(tipoSeleccionado == '🔥'){
+            mascotas = {
+                inputRatigueya: {
+                    name:ratigueya,
+                    id: Ratigueya,
+                    tipo: ratigueya.tipo,
+                    foto: ratigueya.foto,
+                    nivel: ratigueya.nivel},
+
+                inputLangostelvis: {
+                    name: langostelvis,
+                    id: Langostelvis,
+                    tipo: langostelvis.tipo,
+                    foto: langostelvis.foto,
+                    nivel: langostelvis.nivel},
+
+                inputTucapalma:{
+                    name: tucapalma,
+                    id: Tucapalma,
+                    tipo : tucapalma.tipo,
+                    foto: tucapalma.foto,
+                    nivel: tucapalma.nivel}
+                }};
+   
+            for (let mascota in mascotas) {
         if (mascotas[mascota].id.checked) {
             extraccionMascotaJugador = mascotas[mascota].id;
             mascotaJugador = extraccionMascotaJugador.id;
@@ -554,10 +585,6 @@ function seleccionarMascotaEnemigo() {
     ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques;
     secuenciaAtaque();
     mostrarAtaquesEnemigo();
-    
-    
-    
-    
 }
     
         
