@@ -392,19 +392,20 @@ function cargaDeTarjetas(){
     
 
     if(tipoSeleccionado == '💧'){
-        sectionSeleccionarMascota.style.backgroundImage = coloresAgua.fondoBackground;
+        sectionSeleccionarMascota.style.backgroundImage = coloresAgua.fondoBackground + ',url(./Assets/agua.jpg)';
+        sectionSeleccionarMascota.style.backgroundImage = "./Assets/bosque.jpg";
         inputPydos = document.getElementById('Pydos');
         inputHipodoge = document.getElementById('Hipodoge');
         inputKingpingcold = document.getElementById('Kingpingcold');
     }
     if(tipoSeleccionado == '🌱'){
-        sectionSeleccionarMascota.style.backgroundImage = coloresPlanta.fondoBackground;
+        sectionSeleccionarMascota.style.backgroundImage = coloresPlanta.fondoBackground + ',url(./Assets/bosque.jpg)';
         inputCapipepo = document.getElementById('Capipepo');
         inputLeaflion = document.getElementById('Leaflion');
         inputSerpentherb = document.getElementById('Serpentherb');
     }
     if(tipoSeleccionado == '🔥'){
-        sectionSeleccionarMascota.style.backgroundImage = coloresFuego.fondoBackground;
+        sectionSeleccionarMascota.style.backgroundImage = coloresFuego.fondoBackground + ',url(./Assets/fuego.jpg)';
         inputRatigueya = document.getElementById('Ratigueya');
         inputLangostelvis = document.getElementById('Langostelvis');
         inputTucapalma = document.getElementById('Tucapalma');

@@ -65,8 +65,7 @@ body{
 }
 
 .presentacion-juego{
-    
-    width: 50vw;
+     width: 50vw;
     height: 60vh;
     display: grid;
     grid-template-columns: 1fr;
@@ -96,7 +95,14 @@ body{
     height: 50vh;
     justify-content: center;
     align-items: center;
+    transition: width 1s ease-in-out;
+    transition: height 1s ease-in-out;
 }
+
+/*#tarjetas-tipos input+label:checked{
+    width: 33%;
+    height: 115%;
+}*/
 
 .formato-t-tipos{
     display: grid;
@@ -112,16 +118,30 @@ body{
 }
 
 #T-Agua{
-    background-image: var(--azulTurquesaGrLinear); 
+    background-image: var(--azulTurquesaGrLinear), url(./Assets/agua.jpg); 
 }
 
 #T-Planta{
-    background-image: var(--verdeTurquesaGrLinear); 
+    background-image: var(--verdeTurquesaGrLinear), url(./Assets/bosque.jpg); 
 }
 
 #T-Fuego{
-    background-image: var(--rojoFuegoGrLinear); 
+    background-image: var(--rojoFuegoGrLinear), url(./Assets/fuego.jpg); 
 }
+
+#T-Fuego, #T-Planta, #T-Agua{
+    background-size: contain;
+    background-blend-mode: screen;
+    transition: width 0.5s ease-in-out, height 1s ease-in-out !important;
+}
+
+#T-Fuego:hover, #T-Planta:hover, #T-Agua:hover{
+    width: 33%;
+    height: 115%;}
+
+ #T-Fuego:active, #T-Agua:active, #T-Planta:active{
+    background-image: var(--amarilloPastelDegr);
+ }
 
 .logo-tarjeta-tipo{
     grid-row: 1 / 2;
@@ -148,6 +168,12 @@ body{
 
 .btn-seleccionar-tipo:hover{
     cursor: pointer;
+}
+
+#boton-seleccionar-fuego:active, #boton-seleccionar-agua:active, #boton-seleccionar-planta:active{
+    background-image: var(--amarilloPastelDegr);
+    color: black;
+    font-size: 1.5vw;
 }
 
 #boton-seleccionar-agua{
@@ -198,6 +224,8 @@ body{
 
 #seleccionar-mascota{
     background-image: var(--azulTurquesaGr);
+    background-blend-mode: screen;
+    background-size: contain;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -364,9 +392,6 @@ input{
     display: none;
 }
 
-#tarjetas-tipos input:checked + label {
-    background-image: var(--amarilloNovatoPastel);
-}
 
 
 label:hover{
