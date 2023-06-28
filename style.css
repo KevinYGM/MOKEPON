@@ -352,6 +352,9 @@ body{
     border: none;
 }
 
+.btn-seleccionar:hover{
+    cursor: pointer;
+} 
 .btn-seleccionar span {
     display: none;
   }

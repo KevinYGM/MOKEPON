@@ -55,7 +55,7 @@ let opcionDeMokepones;
 let ataquesMokepon;
 let ataquesMokeponE;
 let ataquesMokeponEnemigo;
-let mascotas = 0;
+let mascotas;
 let mascotaJugador;
 let mascotaEnemigo = 0;
 let botones = [];
@@ -71,6 +71,7 @@ let tipoEnemigo;
 let tipoJugador;
 let nivelJugador;
 let nivelEnemigo;
+let mokeponSeleccionado;
 
 let inputHipodoge;
 let inputCapipepo; 
@@ -351,6 +352,7 @@ function iniciarJuego(){
 
 function cargaDeTarjetas(){
     
+    
     //codigo para crear desde 0 cada tarjeta mokepon, usando los datos de la clase Mokepon.
     mokepones.forEach((mokepon) => {
         if(mokepon.tipo === tipoSeleccionado){
@@ -371,17 +373,23 @@ function cargaDeTarjetas(){
             </div>
             <div class="resena-mokepon"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis enim praesentium aperiam, rem alias totam amet dolor ducimus, debitis dicta et doloribus animi tenetur quisquam? Nesciunt assumenda maxime blanditiis laborum.</p><span>${mokepon.tipo}</span></div>
             <div class="boton-seleccionar">
-             <button class="btn-seleccionar" id="boton-seleccionar">Seleccionar<span>${mokepon.tipo}</span></button>
+             <button class="btn-seleccionar" id="boton-seleccionar">Batallar Con ${mokepon.nombre} <span>${mokepon.tipo} ${mokepon}</span></button>
             </div>
         </label>
          `
          mokeponesMostrados.push(mokepon);
+        // mokeponSeleccionado = mokepon;
+         
     }else {return};
 
+    
     sectionSeleccionarTipoInicio.style.display ='none';
     sectionSeleccionarMascota.style.display = 'flex';
 
     contenedorTarjetas.innerHTML += opcionDeMokepones;
+
+    const tarjetasMokepon = document.getElementsByClassName('tarjetas-varias');
+    
 
     if(tipoSeleccionado == '💧'){
         sectionSeleccionarMascota.style.backgroundImage = coloresAgua.fondoBackground;
@@ -401,6 +409,8 @@ function cargaDeTarjetas(){
         inputLangostelvis = document.getElementById('Langostelvis');
         inputTucapalma = document.getElementById('Tucapalma');
         }
+
+        
 });
 
 //codigo para integrar los estilos a las tarjetas de cada mokepon
@@ -450,31 +460,7 @@ elementosTarjetas.forEach((tarjeta) => {
     }); 
    
     botonMascotaJugador= document.querySelectorAll('.btn-seleccionar');
-
-    botonMascotaJugador.forEach(boton => {
-        boton.addEventListener('click', seleccionarMascotaJugador);
-    });
-
-
-    //codigo para integrar los poderes de cada mokepon en las tarjetas
- seccionPoderes = document.querySelectorAll('.poderes-mokepon');
- if(seccionPoderes.length === mokeponesMostrados.length){
-    seccionPoderes.forEach((poderes, index) => {
-        let ataquesTarj = mokeponesMostrados[index].ataques;
-        let ataquesMokeponesTarjetas = '';
-    
-        for (let i = 0; i < ataquesTarj.length; i++) {
-            ataquesMokeponesTarjetas += `<li class=${ataquesTarj[i].id}>${ataquesTarj[i].nombre}</li>`;
-        }
-        poderes.innerHTML = ataquesMokeponesTarjetas; 
-            
-        }); 
-    }; 
-}
-   
- function seleccionarMascotaJugador(){
-
-    if(tipoSeleccionado == '💧'){
+   if(tipoSeleccionado == '💧'){
         mascotas = {
                 inputPydos: {
                     name: pydos,
@@ -545,9 +531,38 @@ elementosTarjetas.forEach((tarjeta) => {
                     foto: tucapalma.foto,
                     nivel: tucapalma.nivel}
                 }};
+
+
+    botonMascotaJugador.forEach(boton => {
+        boton.addEventListener('click', function() {
+            for (let mascotaBoton in mascotas){
+            if(boton.innerText.includes(mascotas[mascotaBoton].id.id)){
+                mokeponSeleccionado = mascotas[mascotaBoton];
+            }
+        }
+
+            seleccionarMascotaJugador()});
+    });
+
+    //codigo para integrar los poderes de cada mokepon en las tarjetas
+ seccionPoderes = document.querySelectorAll('.poderes-mokepon');
+ if(seccionPoderes.length === mokeponesMostrados.length){
+    seccionPoderes.forEach((poderes, index) => {
+        let ataquesTarj = mokeponesMostrados[index].ataques;
+        let ataquesMokeponesTarjetas = '';
     
+        for (let i = 0; i < ataquesTarj.length; i++) {
+            ataquesMokeponesTarjetas += `<li class=${ataquesTarj[i].id}>${ataquesTarj[i].nombre}</li>`;
+        }
+        poderes.innerHTML = ataquesMokeponesTarjetas; 
+            
+        }); 
+    }; 
+}
+
+ function seleccionarMascotaJugador(){
     for (let mascota in mascotas) {
-        if (mascotas[mascota].id.checked) {
+        if (mascotas[mascota].id.id == mokeponSeleccionado.id.id) {
             extraccionMascotaJugador = mascotas[mascota].id;
             mascotaJugador = extraccionMascotaJugador.id;
             eliminarMascotaArray = mascotas[mascota].name;
@@ -573,9 +588,6 @@ elementosTarjetas.forEach((tarjeta) => {
             });
         } 
     }
-    if (ningunaSeleccionada == true) {
-        sonidoDenegacionPersonaje.play();
-    } 
 }
 
 function seleccionarMascotaEnemigo() {
