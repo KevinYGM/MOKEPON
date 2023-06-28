@@ -406,7 +406,6 @@ function cargaDeTarjetas(){
 //codigo para integrar los estilos a las tarjetas de cada mokepon
 elementosTarjetas = document.querySelectorAll(".tarjetas-varias, .recuadro-foto-mokepon, .nivel-mokepon, .poderes-mokepon, .resena-mokepon, .btn-seleccionar");
 
-
 elementosTarjetas.forEach((tarjeta) => {
     if (tarjeta.className === "tarjetas-varias" && tarjeta.innerHTML.includes('💧')) {
         tarjeta.style.backgroundImage = coloresAgua.fondoBackground;}
@@ -780,7 +779,6 @@ function secuenciaAtaque() {
         
         })
     
-    
 } 
 
 
@@ -828,7 +826,6 @@ function crearAvisoAtaqueJugador(){
         nuevoAtaqueDelJugador = document.createElement('p');
         nuevoAtaqueDelJugador.innerHTML = ataqueJugador;
         ataquesDelJugador.insertBefore(nuevoAtaqueDelJugador, ataquesDelJugador.firstChild);
-    
 }
 
 function crearMensaje(resultado){
