@@ -326,8 +326,8 @@ function volverAtras(){
 
 
 function iniciarJuego(){
-    //sonidoSeccionInicial.loop = true;
-    //sonidoSeccionInicial.play();
+    sonidoSeccionInicial.loop = true;
+    sonidoSeccionInicial.play();
     sectionSeleccionarTipoInicio.style.display = 'flex';
     sectionSeleccionarMascota.style.display = 'none';
     sectionSeleccionarAtaque.style.display = 'none';

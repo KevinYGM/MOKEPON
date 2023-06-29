@@ -709,6 +709,10 @@ label:hover{
     overflow: hidden;
 }
 
+.botones-interactivos:hover{
+    cursor: pointer;
+}
+
 .ataques{
     display: grid;
     grid-template-columns: 1fr 1fr;
