@@ -99,11 +99,6 @@ body{
     transition: height 1s ease-in-out;
 }
 
-/*#tarjetas-tipos input+label:checked{
-    width: 33%;
-    height: 115%;
-}*/
-
 .formato-t-tipos{
     display: grid;
     grid-template-rows: 40% 40% 20%;
@@ -265,6 +260,11 @@ body{
     position: relative;
     overflow: hidden;
     box-shadow: 1px 4px 9px rgb(5, 5, 5);
+    transition: height 1s ease-in-out !important;
+}
+
+#tarjeta-de-mokepon:hover{
+    height: 102%;
 }
 
 #area-titulo-mokepon{
@@ -383,6 +383,11 @@ body{
 .btn-seleccionar:hover{
     cursor: pointer;
 } 
+
+.btn-seleccionar:active{
+    background-image: var(--amarilloPastelDegr) !important;
+} 
+
 .btn-seleccionar span {
     display: none;
   }
