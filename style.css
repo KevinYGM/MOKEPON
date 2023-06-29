@@ -604,6 +604,10 @@ label:hover{
 .boton-de-ataque{
     cursor: pointer;
 }
+
+.boton-de-ataque:active{
+    background-image: var(--amarilloPastelDegr);
+}
 .boton-de-ataque-enemigo{
     cursor: auto;
 }
@@ -698,7 +702,7 @@ label:hover{
 }
 
 .botones-interactivos{
-    background-color: rgba(228, 160, 14, 0.74);
+    background-color: rgba(228, 14, 14, 0.74);
     font-family: 'Fredoka', sans-serif;
     width: 18vw;
     height: 15vw;
@@ -711,6 +715,10 @@ label:hover{
 
 .botones-interactivos:hover{
     cursor: pointer;
+}
+
+.botones-interactivos:active{
+    background-image: var(--amarilloPastelDegr);
 }
 
 .ataques{
